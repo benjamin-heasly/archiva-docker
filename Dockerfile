@@ -25,4 +25,4 @@ RUN cp -r /opt/archiva/apache-archiva-2.2.0/conf /var/archiva/conf
 ENV ARCHIVA_BASE /var/archiva
 
 ### let er rip
-CMD /opt/archiva/apache-archiva-2.2.0/bin/archiva start
+CMD ["/opt/archiva/apache-archiva-2.2.0/bin/archiva", "start"]
