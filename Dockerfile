@@ -21,7 +21,7 @@ RUN mkdir logs
 RUN mkdir data
 RUN mkdir temp
 RUN mkdir conf
-RUN cp /opt/archiva/conf /var/archiva/conf
+RUN cp /opt/archiva/apache-archiva-2.2.0/ /var/archiva/conf
 ENV ARCHIVA_BASE /var/archiva
 
 ### let er rip
