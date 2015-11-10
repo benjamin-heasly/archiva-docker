@@ -1,4 +1,4 @@
-FROM FROM java:7
+FROM java:7
 
 MAINTAINER Ben Heasly <benjamin.heasly@gmail.com>
 
