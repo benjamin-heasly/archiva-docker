@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# create config and data dirs if needed
+# allows archiva to start fresh, or have these dirs mounted in from the host
+if [ ! -d /var/archiva/logs ]; then
+  mkdir -p /var/archiva/logs
+fi
+
+if [ ! -d /var/archiva/data ]; then
+  mkdir -p /var/archiva/data
+fi
+
+if [ ! -d /var/archiva/temp ]; then
+  mkdir -p /var/archiva/temp
+fi
+
+if [ ! -d /var/archiva/conf ]; then
+  cp -r /opt/archiva/apache-archiva-2.2.0/conf /var/archiva
+fi
+
+# start archiva in console mode to keep in foreground
+/opt/archiva/apache-archiva-2.2.0/bin/archiva console
+

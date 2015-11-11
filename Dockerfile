@@ -15,13 +15,12 @@ WORKDIR /opt/archiva
 RUN wget http://apache.spinellicreations.com/archiva/2.2.0/binaries/apache-archiva-2.2.0-bin.tar.gz \
     && tar -xzf apache-archiva-2.2.0-bin.tar.gz
 
-### separate base and config from binary
-WORKDIR /var/archiva
-RUN mkdir logs
-RUN mkdir data
-RUN mkdir temp
-RUN cp -r /opt/archiva/apache-archiva-2.2.0/conf /var/archiva
+### separate config and data dirs from binary
 ENV ARCHIVA_BASE /var/archiva
 
-### let er rip
-CMD ["/opt/archiva/apache-archiva-2.2.0/bin/archiva", "console"]
+### get our custom run script
+ADD run-archiva /opt/archiva/run-archiva
+
+### start archiva, creating config and data dirs if
+CMD ["/opt/archiva/run-archiva"]
+
