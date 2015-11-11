@@ -1,6 +1,13 @@
 # archiva-docker
-Dockerfile for automated DockerHub build of Archiva on Ubuntu
+Vanilla installation of Archiva 2.2 (see [[official stand-alone installation instructions](https://archiva.apache.org/docs/2.2.0/adminguide/standalone.html))
 
-This repository exists to enable automated [DockerHub](https://hub.docker.com/) builds of a Docker image that contains Ubuntu and Archiva.
+`ARCHIVA_BASE` located at `/var/archiva`. Config and data dirs created if missing, or existing `ARCHIVA_BASE` may be mounted in from the Docker host.
 
-The Archiva configuration attempts to be faithful to the [official stand-alone installation instructions](https://archiva.apache.org/docs/2.2.0/adminguide/standalone.html), including separation of `ARCHIVA_BASE` from the binary installation.
+Server listens on `8080`, map to whatever you want on the Docker host.
+
+See DockerHub automated build of this Docker image at [ninjaben/archiva-docker](https://hub.docker.com/r/ninjaben/archiva-docker/).
+
+Example usage:
+```
+sudo docker run -v ~/existing-archiva-base:/var/archiva -p 8080:8080 -d ninjaben/archiva-docker
+```
