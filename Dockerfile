@@ -21,6 +21,7 @@ ENV ARCHIVA_BASE /var/archiva
 ### get our custom run script
 ADD run-archiva /opt/archiva/run-archiva
 
-### start archiva, creating config and data dirs if
+### start archiva, creating config and data dirs if needed
+### allows starting fresh or mounting in ARCHIVA_BASE from host
 CMD ["/opt/archiva/run-archiva"]
 
