@@ -1,5 +1,5 @@
 # archiva-docker
-Vanilla installation of Archiva 2.2 (see [[official stand-alone installation instructions](https://archiva.apache.org/docs/2.2.0/adminguide/standalone.html))
+Vanilla installation of Archiva 2.2 (see [official stand-alone installation instructions](https://archiva.apache.org/docs/2.2.0/adminguide/standalone.html))
 
 `ARCHIVA_BASE` located at `/var/archiva`. Config and data dirs created if missing, or existing `ARCHIVA_BASE` may be mounted in from the Docker host.
 
