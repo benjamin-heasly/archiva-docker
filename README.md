@@ -1,7 +1,7 @@
 # archiva-docker
 Vanilla installation of Archiva 2.2 (see [official stand-alone installation instructions](https://archiva.apache.org/docs/2.2.0/adminguide/standalone.html)).
 
-`ARCHIVA_BASE` located at `/var/archiva`. Config and data dirs created if missing, or existing `ARCHIVA_BASE` may be mounted in from the Docker host.
+The environment variable `ARCHIVA_BASE` is set to `/var/archiva`. Config and data directories within are created if missing, or an existing `ARCHIVA_BASE` may be mounted in from the Docker host.
 
 Server listens on `8080`, map to whatever you want on the Docker host.
 
