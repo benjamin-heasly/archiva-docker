@@ -11,3 +11,33 @@ Example usage:
 ```
 sudo docker run -v ~/existing-archiva-base:/var/archiva -p 8080:8080 -d ninjaben/archiva-docker
 ```
+
+# email, server config
+You may wish to set up email or do other server config.  These things don't live in this Docker image, but you can mount them in when launching a container.
+
+For example, this config makes an email resource available in the Jetty container (using [gmail's free smpt service](https://support.google.com/a/answer/176600?hl=en)).  Archiva knows how to find it from there:
+
+`/var/archiva/conf/jetty.xml`
+```
+  <New id="validation_mail" class="org.eclipse.jetty.plus.jndi.Resource">
+    <Arg>mail/Session</Arg>
+    <Arg>
+      <New class="org.eclipse.jetty.jndi.factories.MailSessionReference">
+        <Set name="user">***</Set>
+        <Set name="password">***</Set>
+        <Set name="properties">
+          <New class="java.util.Properties">
+            <Put name="mail.user">***</Put>
+            <Put name="mail.password">***</Put>
+            <Put name="mail.smtp.host">smtp.gmail.com</Put>
+            <Put name="mail.transport.protocol">smtp</Put>
+            <Put name="mail.smtp.port">587</Put>
+            <Put name="mail.smtp.auth">true</Put>
+            <Put name="mail.smtp.starttls.enable">true</Put>
+            <Put name="mail.debug">true</Put>
+          </New>
+        </Set>
+      </New>
+    </Arg>
+  </New>
+```
