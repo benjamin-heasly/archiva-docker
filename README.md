@@ -13,9 +13,9 @@ sudo docker run -v ~/existing-archiva-base:/var/archiva -p 8080:8080 -d ninjaben
 ```
 
 # email and other server config
-You may wish to set up email or do other server config.  These things don't live in this Docker image because they might use  your own infrastructure and credentials. But you can mount them in when launching a container.
+You may wish to set up email or do other server config.  These things don't live in this Docker image because they might use  your own infrastructure and credentials. But you can mount them in when launching a container (it's all under `/var/archiva`).
 
-For example, this config makes an email resource available in the Jetty container (using [gmail's free smpt service](https://support.google.com/a/answer/176600?hl=en)).  It's located under `/var/archiva` next to the artifact data.  Archiva knows how to find it from there:
+For example, this config makes an email resource available in the Jetty container (using [gmail's free smpt service](https://support.google.com/a/answer/176600?hl=en)).  Archiva knows how to find it from there:
 
 `/var/archiva/conf/jetty.xml`
 ```
