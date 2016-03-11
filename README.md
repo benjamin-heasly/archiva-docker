@@ -3,6 +3,8 @@ Vanilla installation of Archiva 2.2 (see [official stand-alone installation inst
 
 The environment variable `ARCHIVA_BASE` is set to `/var/archiva`. Config and data directories within are created if missing, or an existing `ARCHIVA_BASE` may be mounted in from the Docker host.
 
+The environment variable `ARCHIVA_CONTEXT_PATH` is set to `/`.  If you would like to use this container behind a reverse proxy (e.g. `example.org/archiva`), you should set ARCHIVA_CONTEXT_PATH to `/archiva`.
+
 Server listens on `8080`, map to whatever you want on the Docker host.
 
 See DockerHub automated build of this Docker image at [ninjaben/archiva-docker](https://hub.docker.com/r/ninjaben/archiva-docker/).
