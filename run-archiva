@@ -1,5 +1,9 @@
 #! /bin/bash
 
+# apply ARCHIVA_CONTEXT_PATH
+sed -i "s|name=\"contextPath\">/<|name=\"contextPath\">$ARCHIVA_CONTEXT_PATH<|g" \
+  /opt/archiva/apache-archiva-2.2.0/contexts/archiva.xml
+
 # create config and data dirs if needed
 # allows archiva to start fresh, or have these dirs mounted in from the host
 if [ ! -d /var/archiva/logs ]; then
@@ -20,4 +24,3 @@ fi
 
 # start archiva in console mode to keep in foreground
 /opt/archiva/apache-archiva-2.2.0/bin/archiva console
-
