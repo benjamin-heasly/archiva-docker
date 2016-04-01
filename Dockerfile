@@ -18,10 +18,12 @@ RUN wget http://apache.spinellicreations.com/archiva/2.2.0/binaries/apache-archi
 ### separate config and data dirs from binary
 ENV ARCHIVA_BASE /var/archiva
 
+### expose contextPath as environment variable
+ENV ARCHIVA_CONTEXT_PATH /
+
 ### get our custom run script
 ADD run-archiva /opt/archiva/run-archiva
 
 ### start archiva, creating config and data dirs if needed
 ### allows starting fresh or mounting in ARCHIVA_BASE from host
 CMD ["/opt/archiva/run-archiva"]
-
