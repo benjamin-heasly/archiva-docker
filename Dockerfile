@@ -21,6 +21,12 @@ ENV ARCHIVA_BASE /var/archiva
 ### expose contextPath as environment variable
 ENV ARCHIVA_CONTEXT_PATH /
 
+### expose archiva port
+EXPOSE 8080
+
+### expose archiva volume
+VOLUME ["/var/archiva"]
+
 ### get our custom run script
 ADD run-archiva /opt/archiva/run-archiva
 
