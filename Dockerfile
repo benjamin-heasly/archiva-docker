@@ -17,7 +17,7 @@ RUN wget "$(curl 'http://www.apache.org/dyn/closer.cgi' | grep -o '<strong>[^<]*
     wget https://www.apache.org/dist/archiva/2.2.0/binaries/apache-archiva-2.2.0-bin.tar.gz.md5 && \
     cmp -s apache-archiva-2.2.0-bin.tar.gz.my.md5 apache-archiva-2.2.0-bin.tar.gz.md5 && \
     tar -xzf apache-archiva-2.2.0-bin.tar.gz && \
-    rm apache-archiva-2.2.0-bin.tar.gz
+    rm apache-archiva-2.2.0-bin.tar.gz*
 
 ### separate config and data dirs from binary
 ENV ARCHIVA_BASE /var/archiva
