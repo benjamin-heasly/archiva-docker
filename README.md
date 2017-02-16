@@ -14,6 +14,17 @@ Example usage:
 sudo docker run -v ~/existing-archiva-base:/var/archiva -p 8080:8080 -d ninjaben/archiva-docker
 ```
 
+
+# Doing Image and put to run Container
+
+```
+ sudo docker build -t archiva-aghu .
+ sudo docker run -itd --name archiva-aghu -p 8081:8080 archiva-aghu
+ sudo docker start archiva-aghu
+```
+Ther Archivar application is running in http://localhost:8081
+
+
 # email and other server config
 You may wish to set up email or do other server config.  These things don't live in this Docker image because they might use  your own infrastructure and credentials. But you can mount them in when launching a container (it's all under `/var/archiva`).
 
